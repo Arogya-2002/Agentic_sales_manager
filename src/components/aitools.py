@@ -22,18 +22,23 @@ class AiTools:
             raise CustomException(e,sys)
         
 
-    async def planning_agent(self,tools):
+    async def planning_agent(self, tools):
         try:
             sales_manager = Agent(
-                name = self.ai_tools_config.sales_manager_name,
-                instructions = self.ai_tools_config.sales_manager_instruction,
-                tools = tools,
-                model = self.ai_tools_config.model
+                name=self.ai_tools_config.sales_manager_name,
+                instructions=self.ai_tools_config.sales_manager_instruction,
+                tools=tools,
+                model=self.ai_tools_config.model
             )
+
             message = "Send a cold sales email addressed to 'Dear Vamshi'"
 
             with trace("Sales manager"):
                 result = await Runner.run(sales_manager, message)
+
+            await send_email(result, to_email=self.ai_tools_config.to_email)
+
             return result
+
         except Exception as e:
-            raise CustomException(e,sys)
+            raise CustomException(e, sys)
