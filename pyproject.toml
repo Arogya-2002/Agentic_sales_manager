@@ -40,7 +40,8 @@ dependencies = [
     "wikipedia>=1.4.0",
     "mysql-connector-python",
     "uvicorn",
-    "fastapi"
+    "fastapi",
+    "aiomysql",
 ]
 
 [dependency-groups]

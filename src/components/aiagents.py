@@ -18,17 +18,17 @@ class AiAgents:
         try:
             logging.info("Initializing agents")
             sales_agent1 = Agent(
-                name="Professional Sales Agent",
+                name=self.ai_agents_config.salesagent_name_1,
                 instructions= self.ai_agents_config.agent_1_instruction,
                 model=self.ai_agents_config.model)
 
             sales_agent2 = Agent(
-                    name="Engaging Sales Agent",
+                    name=self.ai_agents_config.salesagent_name_2,
                     instructions=self.ai_agents_config.agent_2_instruction,
                     model=self.ai_agents_config.model)
 
             sales_agent3 = Agent(
-                    name="Busy Sales Agent",
+                    name=self.ai_agents_config.salesagent_name_3,
                     instructions=self.ai_agents_config.agent_3_instruction,
                     model=self.ai_agents_config.model)
             
